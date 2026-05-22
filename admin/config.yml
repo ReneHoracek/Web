@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "auta"
+    label: "Nabídky aut"
+    folder: "content/auta"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Název vozu", name: "title", widget: "string" }
+      - { label: "Rok výroby", name: "rok", widget: "number" }
+      - { label: "Cena (Kč)", name: "cena", widget: "number" }
+      - { label: "Nájezd (km)", name: "najezd", widget: "number" }
+      - { label: "Palivo", name: "palivo", widget: "select", options: ["Benzín", "Diesel", "Elektro", "Hybrid"] }
+      - { label: "Popis", name: "body", widget: "markdown" }
+      - { label: "Fotografie", name: "foto", widget: "image", required: false }
+      - { label: "Zveřejněno", name: "published", widget: "boolean", default: true }

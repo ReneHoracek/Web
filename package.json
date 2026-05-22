@@ -1,0 +1,8 @@
+{
+  "name": "autodilna-web",
+  "version": "1.0.0",
+  "description": "Web pro automechanika s Decap CMS",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nabídka aut | AutoDílna Novák</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo"><span class="logo-dot"></span>AutoDílna <span>Novák</span></div>
+            <nav>
+                <a href="index.html">Domů</a>
+                <a href="auta.html" class="active">Autobazar</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section page-top">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="section-title text-left">Aktuální nabídka vozů</h1>
+                    <p>5 vozů skladem</p>
+                </div>
+                <div class="filters">
+                    <select id="palivo-filter" class="filter-select">
+                        <option value="vse">Všechna paliva</option>
+                        <option value="Benzín">Benzín</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Elektro">Elektro</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                    <select id="cena-sort" class="filter-select">
+                        <option value="výchozí">Řadit dle ceny</option>
+                        <option value="vzestupne">Od nejlevnějšího</option>
+                        <option value="sestupne">Od nejdražšího</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="car-grid" class="grid car-grid">
+                <div class="car-card" data-palivo="Diesel" data-cena="389000">
+                    <div class="car-image">
+                        <img src="images/uploads/car-1.jpg" alt="Škoda Octavia 2.0 TDI">
+                    </div>
+                    <div class="car-content">
+                        <h3>Škoda Octavia 2.0 TDI</h3>
+                        <div class="car-specs">
+                            <span>📅 2019</span>
+                            <span>⛽ Diesel</span>
+                            <span>🛣️ 87000 km</span>
+                        </div>
+                        <div class="car-price">389 000 Kč</div>
+                    </div>
+                </div>
+
+                <div class="car-card" data-palivo="Benzín" data-cena="259000">
+                    <div class="car-image">
+                        <img src="images/uploads/car-2.jpg" alt="Škoda Fabia 1.0 TSI">
+                    </div>
+                    <div class="car-content">
+                        <h3>Škoda Fabia 1.0 TSI</h3>
+                        <div class="car-specs">
+                            <span>📅 2018</span>
+                            <span>⛽ Benzín</span>
+                            <span>🛣️ 62000 km</span>
+                        </div>
+                        <div class="car-price">259 000 Kč</div>
+                    </div>
+                </div>
+
+                <div class="car-card" data-palivo="Diesel" data-cena="459000">
+                    <div class="car-image">
+                        <img src="images/uploads/car-3.jpg" alt="Volkswagen Passat 2.0 TDI">
+                    </div>
+                    <div class="car-content">
+                        <h3>Volkswagen Passat 2.0 TDI</h3>
+                        <div class="car-specs">
+                            <span>📅 2020</span>
+                            <span>⛽ Diesel</span>
+                            <span>🛣️ 105000 km</span>
+                        </div>
+                        <div class="car-price">459 000 Kč</div>
+                    </div>
+                </div>
+
+                <div class="car-card" data-palivo="Benzín" data-cena="189000">
+                    <div class="car-image">
+                        <img src="images/uploads/car-4.jpg" alt="Dacia Sandero 0.9 TCe">
+                    </div>
+                    <div class="car-content">
+                        <h3>Dacia Sandero 0.9 TCe</h3>
+                        <div class="car-specs">
+                            <span>📅 2017</span>
+                            <span>⛽ Benzín</span>
+                            <span>🛣️ 45000 km</span>
+                        </div>
+                        <div class="car-price">189 000 Kč</div>
+                    </div>
+                </div>
+
+                <div class="car-card" data-palivo="Hybrid" data-cena="529000">
+                    <div class="car-image">
+                        <img src="images/uploads/car-5.jpg" alt="Toyota Corolla 1.8 Hybrid">
+                    </div>
+                    <div class="car-content">
+                        <h3>Toyota Corolla 1.8 Hybrid</h3>
+                        <div class="car-specs">
+                            <span>📅 2021</span>
+                            <span>⛽ Hybrid</span>
+                            <span>🛣️ 34000 km</span>
+                        </div>
+                        <div class="car-price">529 000 Kč</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
