@@ -32,7 +32,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden;
+}
 
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -40,6 +43,7 @@ body {
     line-height: 1.65;
     background-color: var(--bg-main);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 body.bg-light { background-color: #ffffff; }
@@ -48,6 +52,7 @@ body.bg-light { background-color: #ffffff; }
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .text-center { text-align: center; }
@@ -136,7 +141,7 @@ h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
     width: 10px;
     height: 10px;
     background: var(--accent);
-    border-radius: 0; /* Čtvercová tečka působí více industriálně */
+    border-radius: 0;
 }
 .logo span { color: var(--accent); }
 .navbar nav { display: flex; align-items: center; gap: 1rem; }
@@ -164,7 +169,7 @@ h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: url('../images/uploads/hero-bg.jpg') center 40% / cover; /* Předpokládám složku images o úroveň výš, příp. uprav cestu */
+    background: url('../images/uploads/hero-bg.jpg') center 40% / cover;
     filter: brightness(0.6) contrast(1.1);
 }
 .hero-overlay {
@@ -272,7 +277,7 @@ h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
 }
 .about-list li:last-child { border-bottom: none; }
 .about-list li::before {
-    content: '\f00c'; /* FontAwesome check */
+    content: '\f00c';
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     color: var(--accent);
@@ -562,26 +567,85 @@ h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
 }
 .form-group textarea { resize: vertical; min-height: 120px; }
 
-/* Responzivita */
-@media (max-width: 992px) {
-  .about-grid, .detail-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .trust-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+/*******************************************************************************
+ * POKROČILÁ RESPONSIVITA (PRO VŠECHNA ZAŘÍZENÍ)
+ ******************************************************************************/
+
+/* 1. Velké monitory a TV (Optimalizace kontejneru) */
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; }
 }
 
+/* 2. Notebooky a menší PC (Zúžení mezer a jemné zmenšení nadpisů) */
+@media (max-width: 1200px) {
+    h1 { font-size: 3.25rem; }
+    .hero h1 { font-size: 4rem; }
+    .about-grid, .detail-grid { gap: 2.5rem; }
+}
+
+/* 3. Tablety na šířku / iPady Pro (1024px) */
+@media (max-width: 1024px) {
+    h1 { font-size: 3rem; }
+    .hero h1 { font-size: 3.5rem; }
+    .about-grid, .detail-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image, .detail-image { height: 380px; }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:first-child { grid-column: span 2; grid-row: span 1; height: 300px; }
+}
+
+/* 4. Klasické Tablety na výšku (992px dolů) */
+@media (max-width: 992px) {
+    .section { padding: 5rem 0; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .page-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .filters { width: 100%; }
+    .filter-select { flex-grow: 1; }
+}
+
+/* 5. Větší Mobily / Smartphony (768px dolů) - Přechod na mobilní UI */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2, .section-title { font-size: 1.8rem; }
+    h1 { font-size: 2.25rem; }
+    h2, .section-title { font-size: 1.75rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.1rem; margin-bottom: 2rem; }
+    .hero-content { padding: 7rem 0 4rem; }
     .hero { min-height: auto; }
-    .hero-content { padding: 8rem 0 4rem; }
+    
+    /* Navigace */
     .hamburger { display: block; }
     .navbar nav { display: none; }
-    .page-header { flex-direction: column; align-items: flex-start; }
-    .filters { width: 100%; flex-direction: column; }
-    .section { padding: 4rem 0; }
-    .about-image, .detail-image { height: 300px; }
+    
+    /* Mřížky padají na 1 sloupec */
+    .car-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
-    .gallery-item { height: 250px; }
-    .car-grid { grid-template-columns: 1fr; }
+    .gallery-item:first-child { grid-column: span 1; grid-row: span 1; height: 220px; }
+    .gallery-item { height: 220px; }
+    
+    .about-image, .detail-image { height: 280px; }
+    .contact-form { padding: 1.75rem; }
+}
+
+/* 6. Menší Smartphony (576px dolů) */
+@media (max-width: 576px) {
+    .container { padding: 0 1.25rem; }
+    .hero .btn-group { flex-direction: column; width: 100%; }
+    .hero .btn { width: 100%; }
+    .trust-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .trust-item { padding: 1.25rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-sm); }
+    .trust-number { font-size: 3rem; }
+    .filters { flex-direction: column; gap: 0.75rem; }
+    .filter-select { width: 100%; }
+}
+
+/* 7. Extrémně malé telefony (méně než 380px - např. starší iPhony SE) */
+@media (max-width: 380px) {
+    .hero h1 { font-size: 2.1rem; }
+    h2, .section-title { font-size: 1.5rem; }
+    .section-subtitle { margin-bottom: 2.5rem; }
+    .feature-card { padding: 1.75rem 1.25rem; }
+    .car-content { padding: 1.25rem; }
+    .car-price { font-size: 1.5rem; }
+    .detail-price { font-size: 2rem !important; }
 }
