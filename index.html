@@ -8,12 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <header class="navbar">
         <div class="container nav-content">
             <div class="logo"><span class="logo-dot"></span>AutoDílna <span>Novák</span></div>
+            <button class="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
             <nav>
                 <a href="index.html" class="active">Domů</a>
                 <a href="auta.html">Autobazar</a>
@@ -21,6 +23,15 @@
             </nav>
         </div>
     </header>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <button class="nav-close" aria-label="Zavřít"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="active">Domů</a>
+            <a href="auta.html">Autobazar</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </div>
 
     <section class="hero">
         <div class="hero-bg"></div>
@@ -37,28 +48,28 @@
         </div>
     </section>
 
-    <section id="sluzby" class="section">
+    <section id="sluzby" class="section fade-in">
         <div class="container text-center">
             <h2 class="section-title">Naše služby</h2>
             <p class="section-subtitle">Vše pro váš vůz na jednom místě — od běžného servisu až po prodej prověřených automobilů</p>
             <div class="grid features">
                 <div class="feature-card">
-                    <div class="icon">🛠️</div>
+                    <div class="icon"><i class="fa-solid fa-wrench"></i></div>
                     <h3>Běžný servis</h3>
                     <p>Pravidelné prohlídky, výměny olejů, filtrů a brzdových destiček přesně dle předpisů výrobce.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">💻</div>
+                    <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
                     <h3>Diagnostika</h3>
                     <p>Kompletní počítačová diagnostika všech řídících jednotek. Odhalíme i skryté závady.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">🛞</div>
+                    <div class="icon"><i class="fa-solid fa-tire"></i></div>
                     <h3>Pneuservis</h3>
                     <p>Přezouvání, vyvažování a uskladnění pneumatik všech typů za bezkonkurenční ceny.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">📋</div>
+                    <div class="icon"><i class="fa-solid fa-clipboard-check"></i></div>
                     <h3>Příprava STK</h3>
                     <p>Kompletní příprava a zajištění technické kontroly i měření emisí. Projdete na první pokus.</p>
                 </div>
@@ -66,7 +77,7 @@
         </div>
     </section>
 
-    <section class="section trust-section">
+    <section class="section trust-section fade-in">
         <div class="container text-center">
             <h2 class="section-title">Proč si vybrat právě nás</h2>
             <p class="section-subtitle">Čísla, která hovoří za nás</p>
@@ -91,7 +102,7 @@
         </div>
     </section>
 
-    <section id="o-nas" class="section">
+    <section id="o-nas" class="section fade-in">
         <div class="container">
             <h2 class="section-title text-center">O nás</h2>
             <p class="section-subtitle text-center">Rodinná autodílna s tradicí</p>
@@ -112,7 +123,7 @@
         </div>
     </section>
 
-    <section id="galerie" class="section bg-light">
+    <section id="galerie" class="section bg-light fade-in">
         <div class="container">
             <h2 class="section-title text-center">Něco z naší nabídky</h2>
             <p class="section-subtitle text-center">Podívejte se na ukázku vozů z našeho autobazaru</p>
@@ -133,6 +144,24 @@
         </div>
     </section>
 
+    <section class="section fade-in">
+        <div class="container text-center max-w-lg">
+            <h2 class="section-title">Napište nám</h2>
+            <form method="POST" action="https://api.web3forms.com/submit" class="contact-form">
+                <input type="hidden" name="access_key" value="YOUR_KEY">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Vaše jméno" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Váš e-mail" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" placeholder="Vaše zpráva" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Odeslat zprávu</button>
+            </form>
+        </div>
+    </section>
     <footer id="kontakt" class="footer">
         <div class="container grid footer-grid">
             <div>
@@ -141,9 +170,9 @@
             </div>
             <div>
                 <h3>Kontakt</h3>
-                <p>📍 Nádražní 123<br>586 01 Jihlava</p>
-                <p>📞 +420 123 456 789</p>
-                <p>✉️ info@autodilnanovak.cz</p>
+                <p><i class="fa-solid fa-location-dot"></i> Nádražní 123<br>586 01 Jihlava</p>
+                <p><i class="fa-solid fa-phone"></i> +420 123 456 789</p>
+                <p><i class="fa-solid fa-envelope"></i> info@autodilnanovak.cz</p>
             </div>
             <div>
                 <h3>Otevírací doba</h3>
@@ -157,6 +186,8 @@
         </div>
     </footer>
 
+    <script src="js/nav.js"></script>
+    <script src="js/scrollAnimations.js"></script>
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {

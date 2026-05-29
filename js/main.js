@@ -89,7 +89,7 @@ function renderCars(cars, grid, countEl) {
 
     for (const car of cars) {
         const card = document.createElement("div");
-        card.className = "car-card";
+        card.className = "car-card fade-in";
         card.dataset.palivo = car.palivo;
         card.dataset.cena = car.cena;
 
@@ -109,15 +109,20 @@ function renderCars(cars, grid, countEl) {
             <div class="car-content">
                 <h3>${car.title}</h3>
                 <div class="car-specs">
-                    <span>📅 ${car.rok}</span>
-                    <span>⛽ ${car.palivo}</span>
-                    <span>🛣️ ${car.najezd} km</span>
+                    <span><i class="fa-regular fa-calendar-day"></i> ${car.rok}</span>
+                    <span><i class="fa-solid fa-gas-pump"></i> ${car.palivo}</span>
+                    <span><i class="fa-solid fa-road"></i> ${car.najezd} km</span>
                 </div>
                 <div class="car-price">${priceFormatted}</div>
+                <a href="auto-detail.html?title=${encodeURIComponent(car.title)}" class="btn btn-primary btn-block">Zobrazit detail</a>
             </div>
+
         `;
 
         grid.appendChild(card);
+        if (window.__fadeObserver) {
+            window.__fadeObserver.observe(card);
+        }
     }
 
     if (countEl) {

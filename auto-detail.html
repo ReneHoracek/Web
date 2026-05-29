@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail vozu | AutoDílna Novák</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo"><span class="logo-dot"></span>AutoDílna <span>Novák</span></div>
+            <button class="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+            <nav>
+                <a href="index.html">Domů</a>
+                <a href="auta.html">Autobazar</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <button class="nav-close" aria-label="Zavřít"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="mobile-nav-links">
+            <a href="index.html">Domů</a>
+            <a href="auta.html">Autobazar</a>
+            <a href="index.html#kontakt">Kontakt</a>
+        </nav>
+    </div>
+
+    <section class="section fade-in">
+        <div class="container detail-grid">
+            <div class="detail-image">
+                <img id="detailImg" src="" alt="Detail vozu">
+            </div>
+            <div class="detail-info">
+                <h2 id="detailTitle">Načítám...</h2>
+                <div class="detail-specs">
+                    <p><i class="fa-regular fa-calendar-day"></i> Rok výroby: <strong id="detailYear"></strong></p>
+                    <p><i class="fa-solid fa-gas-pump"></i> Palivo: <strong id="detailFuel"></strong></p>
+                    <p><i class="fa-solid fa-road"></i> Najeto: <strong id="detailMileage"></strong></p>
+                    <p><i class="fa-solid fa-gear"></i> Převodovka: <strong id="detailGearbox"></strong></p>
+                    <p class="detail-price" id="detailPrice"></p>
+                </div>
+
+                <form method="POST" action="https://api.web3forms.com/submit" class="contact-form fade-in">
+                    <input type="hidden" name="access_key" value="YOUR_KEY">
+                    <input type="hidden" name="subject" value="Poptávka o vozidle">
+                    <div class="form-group">
+                        <label for="name">Vaše jméno</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Váš e-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Vaše zpráva</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Odeslat poptávku</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontakt" class="footer">
+        <div class="container grid footer-grid">
+            <div>
+                <h3>AutoDílna Novák</h3>
+                <p>Odborný servis a prodej aut s garancí původu. Jsme tu pro vás už od roku 2010. Přijďte se přesvědčit osobně.</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Nádražní 123<br>586 01 Jihlava</p>
+                <p><i class="fa-solid fa-phone"></i> +420 123 456 789</p>
+                <p><i class="fa-solid fa-envelope"></i> info@autodilnanovak.cz</p>
+            </div>
+            <div>
+                <h3>Otevírací doba</h3>
+                <p>Po–Pá: 8:00 – 17:00</p>
+                <p>So: 8:00 – 12:00 (servis)</p>
+                <p>Ne: Zavřeno</p>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 AutoDílna Novák. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/scrollAnimations.js"></script>
+    <script src="js/detail.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
