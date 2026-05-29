@@ -1,0 +1,22 @@
+[
+  {
+    "title": "pegueot",
+    "rok": 1999,
+    "cena": 1,
+    "najezd": 1,
+    "palivo": "Benzín",
+    "foto": "images/uploads/car-2.jpg",
+    "published": true,
+    "body": "sdfsfsfdf"
+  },
+  {
+    "title": "Škoda Octavia 2.0 TDI",
+    "rok": 2019,
+    "cena": 389000,
+    "najezd": 87000,
+    "palivo": "Diesel",
+    "foto": "",
+    "published": true,
+    "body": "Krásná Škoda Octavia ve výborném stavu. Servisní knížka kompletní, 1 majitel, nekuřák. Možnost prověření v autohistorii."
+  }
+]
