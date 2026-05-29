@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Web pro automechanika s Decap CMS",
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "build": "node scripts/build.js"
   }
 }
